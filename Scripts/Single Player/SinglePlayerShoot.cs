@@ -84,7 +84,7 @@ public class SinglePlayerShoot : MonoBehaviour
     Vector3 rotation;
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+     photonView = GetComponent<PhotonView>();
 
 
         anim = GetComponent<Animator>();

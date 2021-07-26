@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 
 public class PCubePlayerR : MonoBehaviour
@@ -30,6 +31,9 @@ public class PCubePlayerR : MonoBehaviour
     public float timer1;
     public static int amount;
     public Vector3 lastKnownPosition;
+    public int ID;
+
+    PhotonView photonView;
     void Start()
     {
         if (instance == null)
@@ -224,29 +228,36 @@ public class PCubePlayerR : MonoBehaviour
 
         }
     }
-   public void OnTriggerEnter(Collider other)
-    {
+   //private void OnTriggerEnter(Collider other)
+   // {
+   //     // PhotonView photonView = GetComponent<PhotonView>();
+   //     //PhotonView photonView = GetComponent<PhotonView>();
+      
        
-        if (other.gameObject.tag == "Player")
-        {
+   //     //if (other.gameObject.CompareTag("Player"))
+   //     //{
+   //     //    //int viewid = hit.collider.GetComponent<PhotonView>().viewID;
+   //     //    //ID = other.GetComponent<Collider>().GetComponent<PhotonView>().ViewID;
 
-            //Get the player's position
-            lastKnownPosition = player.transform.position;
-
-
-            //Debug.Log(" amount " + amount);
-            GetComponentInChildren<Transform>().gameObject.SetActive(false);
-       
+          
+   //     //    //Get the player's position
+   //     //    //lastKnownPosition = player.transform.position;
 
 
-            this.GetComponent<SphereCollider>().enabled = false;
-           // this.GetComponent<SphereCollider>().isTrigger = false;
-            this.GetComponent<MeshRenderer>().enabled = false;
-            amount += 1;
-           // Debug.Log(" amount " + amount);
-            PRizeScore.instance.GetI(amount);
 
-        }
+   //     //    GetComponentInChildren<Transform>().gameObject.SetActive(false);
+
+
+
+   //     //        this.GetComponent<SphereCollider>().enabled = false;
+   //     //        // this.GetComponent<SphereCollider>().isTrigger = false;
+   //     //        this.GetComponent<MeshRenderer>().enabled = false;
+   //     //        amount += 1;
+   //     //   // photonView.RPC("PRizeScore.instance.GetI", RpcTarget.AllBuffered, amount, ID);
+   //     //   // PRizeScore.instance.GetI(amount,ID);
+   //     //      //
+            
+   //     //}
         
-    }
+   // }
 }

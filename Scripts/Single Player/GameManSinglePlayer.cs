@@ -124,7 +124,7 @@ public class GameManSinglePlayer : MonoBehaviour
                             GameObject a = Instantiate(item);
                          
                             Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                            Debug.Log(" ZERO " );
+                            
                             a.transform.position = pos;
                             GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, pos, Quaternion.identity);
                             ab.transform.position = pos;
@@ -224,7 +224,7 @@ public class GameManSinglePlayer : MonoBehaviour
                             a.transform.position = pos;
                             GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
                             ab.transform.position = pos;
-                            Debug.Log("playepref 2");
+                            
                             if (a.transform.position == null)
                             {
                                 ab.transform.SetParent(a.transform, true);
