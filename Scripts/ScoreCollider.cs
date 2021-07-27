@@ -11,10 +11,10 @@ public class ScoreCollider : MonoBehaviour
 
     public void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        photonView = GetComponentInParent<PhotonView>();
         xx = 0;
 
-       
+        
 
         // prize.AddRange(GameObject.FindGameObjectsWithTag("Prize"));
 
@@ -41,7 +41,8 @@ public class ScoreCollider : MonoBehaviour
             GetI(xx);
             // GameManSinglePlayer.gameManSIgleInstance.Get_Total();
             //photonView.RPC("GetI", RpcTarget.All, xx);
-            GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx, photonView.ID);
+            Debug.Log("photonviewiD " + photonView.ViewID);
+            GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx, photonView.ViewID);
         }
 
     }

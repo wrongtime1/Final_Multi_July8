@@ -474,9 +474,9 @@ public class GameManSinglePlayer : MonoBehaviour
     }
 
 
-    public void Get_Total(int amount, int viewID)
+    public void Get_Total(int amount, int ID)
     {
-        Debug.Log("amount " + amount + " id " + viewID);
+        Debug.Log("amount " + amount + " id "  + ID);
     }
     //public void TimerRe()
     //{
