@@ -62,7 +62,7 @@ public class GameManSinglePlayer : MonoBehaviour
     public Avatar Eavat;
     public Avatar Favat;
     [HideInInspector]
-    public GameManSinglePlayer gameManSIgleInstance;
+    public static GameManSinglePlayer gameManSIgleInstance;
     [HideInInspector]
     public PhotonView photonView;
 
@@ -473,6 +473,11 @@ public class GameManSinglePlayer : MonoBehaviour
 
     }
 
+
+    public void Get_Total(int amount, int viewID)
+    {
+        Debug.Log("amount " + amount + " id " + viewID);
+    }
     //public void TimerRe()
     //{
 
