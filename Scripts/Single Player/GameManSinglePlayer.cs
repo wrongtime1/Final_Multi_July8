@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +10,10 @@ using System;
 
 public class GameManSinglePlayer : MonoBehaviour
 {
+
+[SerializeField]
+public Text pointText;
+
     [Header("Placements")]
     public List<GameObject> placements = new List<GameObject>();
 
@@ -66,7 +70,9 @@ public class GameManSinglePlayer : MonoBehaviour
     [HideInInspector]
     public PhotonView photonView;
 
-
+    [Header("spawninfor")]
+    int SpawnPicker;
+    public Transform[] SpawnPointTransforms;
 
     void Awake()
     {
@@ -125,9 +131,11 @@ public class GameManSinglePlayer : MonoBehaviour
                          
                             Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
                             
+                            SpawnPicker= UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
+
                             a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, pos, Quaternion.identity);
-                            ab.transform.position = pos;
+                            GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation,0);
+                            //ab.transform.position = pos;
                             //a.transform.position = ab.transform.position;
                             if (a.transform.position == null)
                             {
@@ -170,10 +178,11 @@ public class GameManSinglePlayer : MonoBehaviour
                             GameObject a = Instantiate(item);
                          
                             Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                            SpawnPicker= UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
                            
                             a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, pos, Quaternion.identity);
-                            ab.transform.position = pos;
+                            GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation,0);
+                           // ab.transform.position = pos;
                       
                             if (a.transform.position == null)
                             {
@@ -474,9 +483,15 @@ public class GameManSinglePlayer : MonoBehaviour
     }
 
 
+[PunRPC]
     public void Get_Total(int amount, int ID)
     {
-        Debug.Log("amount " + amount + " id "  + ID);
+        Debug.Log(" FROM GAME SINGLE amount " + amount + " id "  + ID);
+        //pointText.text= ID.ToString();
+       // Time.timeScale=0;
+       // PhotonView photonVIEWS = photonVIEWS.FindView
+
+        
     }
     //public void TimerRe()
     //{

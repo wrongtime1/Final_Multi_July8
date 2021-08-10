@@ -132,6 +132,41 @@ public class RotatePRizes : MonoBehaviour
 
     }
 
+
+    
+ public void DisplayFirstPrize1(GameObject prize1)
+    {
+        globalTransforms.Add(prize1);
+
+        List<GameObject> uniqueLst = globalTransforms.Distinct().ToList();
+    
+
+        Random rnd = new Random();
+        var third = new List<GameObject>();
+
+        Shuf.Shuffle(uniqueLst);
+        foreach (var item in uniqueLst)
+        {
+        
+            if (prize1 != item)
+            {
+
+                third.Add(item);
+                item.SetActive(true);
+             
+                item.GetComponent<SphereCollider>().enabled = true;
+                item.GetComponent<MeshRenderer>().enabled = true;
+                // item.gameObject.GetComponentInChildren<GameObject>().SetActive(true);
+                // item.transform.GetChild(1).gameObject.SetActive(false);
+                item.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+                containerBool = true;
+                StartCoroutine("TimerPRize", item);
+             
+                return;
+
+            }
+        }
+    }
     public void CalculateTIme(float distanceRemaining)
     {
      
@@ -232,39 +267,7 @@ public class RotatePRizes : MonoBehaviour
         x.GetComponent<SphereCollider>().enabled = false;
         DisplayFirstPrize1(x);
     }
-    public void DisplayFirstPrize1(GameObject prize1)
-    {
-        globalTransforms.Add(prize1);
-
-        List<GameObject> uniqueLst = globalTransforms.Distinct().ToList();
-    
-
-        Random rnd = new Random();
-        var third = new List<GameObject>();
-
-        Shuf.Shuffle(uniqueLst);
-        foreach (var item in uniqueLst)
-        {
-        
-            if (prize1 != item)
-            {
-
-                third.Add(item);
-                item.SetActive(true);
-             
-                item.GetComponent<SphereCollider>().enabled = true;
-                item.GetComponent<MeshRenderer>().enabled = true;
-                // item.gameObject.GetComponentInChildren<GameObject>().SetActive(true);
-                // item.transform.GetChild(1).gameObject.SetActive(false);
-                item.GetComponentInChildren<Transform>().gameObject.SetActive(true);
-                containerBool = true;
-                StartCoroutine("TimerPRize", item);
-             
-                return;
-
-            }
-        }
-    }
+   
     public IEnumerator TimerPRize(GameObject x)
     {
       //  Debug.Log("COROdistanceFromGlobeToPlayerLocal After " + COROdistanceFromGlobeToPlayerLocal);
