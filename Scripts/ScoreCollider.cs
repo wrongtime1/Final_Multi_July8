@@ -144,7 +144,7 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
             Time.timeScale = 0;
             //Show Level 2 canvas
 
-
+        StartCoroutine("DisconnectAndLoad");
 
 
     }
