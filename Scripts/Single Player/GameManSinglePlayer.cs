@@ -74,10 +74,23 @@ public Text pointText;
     int SpawnPicker;
     public Transform[] SpawnPointTransforms;
 
+    [Header("Winning Information")]
+    [SerializeField]
+    public GameObject Lev2Canvas;
+
     void Awake()
     {
 
-        gameManSIgleInstance = this;
+      
+        if (gameManSIgleInstance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            gameManSIgleInstance = this;
+
+        }
         photonView = GetComponent<PhotonView>();
 
     }
@@ -493,6 +506,27 @@ public Text pointText;
 
         
     }
+
+    #region LEvel 2
+
+    public void WInGame(){
+
+        Lev2Canvas.SetActive(true);
+    }
+    public void SingleButton1(){
+
+    }
+
+    public void MultiBtn2(){
+        
+       // PhotonNetwork.Load();
+    }
+
+    public void ExitLev2(){
+
+    }
+
+    #endregion
     //public void TimerRe()
     //{
 

@@ -54,7 +54,13 @@ public class TurretGun : MonoBehaviour
         scene = SceneManager.GetActiveScene();
           anim = GetComponent<Animator>();
         audioSOurce = GetComponent<AudioSource>();
+        if(target !=null){
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        }
+        else{
+            return;
+        }
         photonView = GetComponent<PhotonView>();
     }
 

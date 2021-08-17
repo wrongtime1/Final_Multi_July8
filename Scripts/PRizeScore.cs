@@ -39,9 +39,9 @@ public class PRizeScore : MonoBehaviour
         //}
     }
 
-  
-    [PunRPC]
-    public void GetI(int hit)
+}
+   // [PunRPC]
+ /*   public void GetI(int hit)
     {
 
         //  Debug.Log("Is  mine ");
@@ -89,10 +89,10 @@ public class PRizeScore : MonoBehaviour
         //EnemyPlayer.GetComponent<NavMeshAgent>().enabled = false;
         //display victory
 
-       WinPanel.SetActive(true);
+      
 
      
     }
+*/
 
-  
-}
+

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -39,8 +39,7 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
         if (other.gameObject.CompareTag("GlobalPRize"))
         {
          
-           // Debug.Log("Global pRIze");
-           
+              
            Debug.Log("timerTrigger " + timerTrigger);
            if(timerTrigger==true){
             xx = xx + 1;
@@ -80,18 +79,14 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
   void Update(){
  //if timer is trigger to TRUE
  if(timerTrigger==false){
-        timer += Time.deltaTime;
-
-       
-        
-        
-      
-           
+        timer += Time.deltaTime;       
+         
      }
  if(timer >=4.0f ){
             timerTrigger= true;
-     Debug.Log(" timer " +  timer);
-  }
+ 
+     
+    }
   }
 
     [PunRPC]
@@ -110,9 +105,12 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
             case 1:
 
                prize[0].gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
-                // WinGame();
-                //wonGame = true;
-                break;
+            
+               
+                Debug.Log("white glowing");
+                Wingame();
+                 break;
+               //photonView.RPC("Wingame", RpcTarget.AllBuffered);
             case 2:
             prize[1].gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
                 break;
@@ -129,11 +127,36 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
               prize[5].gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
 
                 break;
-
+                   
+                //wonGame = true;
          }
 
         
 
     }
 
+[PunRPC]
+    public void Wingame(){
+            //pasue the game
+   
+            Debug.Log("WON THE GAME");
+  GameManSinglePlayer.gameManSIgleInstance.WInGame();
+            Time.timeScale = 0;
+            //Show Level 2 canvas
+
+
+
+
+    }
+
+  
+public IEnumerator DisconnectAndLoad(){
+
+    PhotonNetwork.LeaveRoom();
+    while(PhotonNetwork.IsConnected){
+            yield return null;
+
+            //SceneManager.LoadScene();
+    }
+}
 }
