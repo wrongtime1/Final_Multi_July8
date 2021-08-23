@@ -9,7 +9,8 @@ public class PCubePlayerR : MonoBehaviour
 {
     public static PCubePlayerR instance { get; private set; }
     public bool hit;
-    public Transform player;
+    [SerializeField]
+    private GameObject player;
     public Vector3 distance;
     [SerializeField]
     public float d;
@@ -41,6 +42,10 @@ public class PCubePlayerR : MonoBehaviour
             instance = this;
         }
         amount = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
+
+
+
     }
 
     public void Update()

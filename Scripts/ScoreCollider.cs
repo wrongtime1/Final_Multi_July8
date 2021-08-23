@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 using System;
 
 public class ScoreCollider : MonoBehaviourPunCallbacks
@@ -108,7 +109,9 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
             
                
                 Debug.Log("white glowing");
-                Wingame();
+                 GameManSinglePlayer.gameManSIgleInstance.WInGame(); //show canvas
+                 GameManSinglePlayer.gameManSIgleInstance.Wingame();
+                
                  break;
                //photonView.RPC("Wingame", RpcTarget.AllBuffered);
             case 2:
@@ -135,28 +138,12 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
 
     }
 
-[PunRPC]
-    public void Wingame(){
-            //pasue the game
-   
-            Debug.Log("WON THE GAME");
-  GameManSinglePlayer.gameManSIgleInstance.WInGame();
-            Time.timeScale = 0;
-            //Show Level 2 canvas
-
-        StartCoroutine("DisconnectAndLoad");
 
 
-    }
 
-  
-public IEnumerator DisconnectAndLoad(){
 
-    PhotonNetwork.LeaveRoom();
-    while(PhotonNetwork.IsConnected){
-            yield return null;
 
-            //SceneManager.LoadScene();
-    }
-}
+
+        
+
 }
