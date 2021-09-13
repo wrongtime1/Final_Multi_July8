@@ -22,8 +22,13 @@ namespace Com.Marand.FirstPerson
     public GameObject CreateRoom_UI_Panel;
     public InputField roomNameInputField;
     public InputField maxPlayerInputField;
-
-    [Header("Inside room IU Panel")]
+        [Header("Scene selection")]
+        public Button Scene1;
+        public Button Scene2;
+        public Button Scene3;
+        [HideInInspector]
+        public static int SceneSelection;
+        [Header("Inside room IU Panel")]
     public GameObject InsideRoom_UI_Panel;
     public Text roomInfoText;
     public GameObject playerListPrefabl;
@@ -304,7 +309,25 @@ namespace Com.Marand.FirstPerson
         PhotonNetwork.CreateRoom(roomName, roomOptions);
     }
 
-    public void OnBackButtonCLicked()
+        public void OnClickScene1()
+        {
+            SceneSelection = 1;
+            OnRoomCreateButtonClicked();
+        }
+        public void OnClickScene2()
+        {
+            SceneSelection = 2;
+            OnRoomCreateButtonClicked();
+        }
+
+        public void OnClickScene3()
+        {
+            SceneSelection = 3;
+            OnRoomCreateButtonClicked();
+        }
+
+
+        public void OnBackButtonCLicked()
         {
             if (PhotonNetwork.InLobby)
             {
@@ -328,8 +351,21 @@ namespace Com.Marand.FirstPerson
         {
             if (PhotonNetwork.IsMasterClient)
             {
-              
-                PhotonNetwork.LoadLevel("MultipSce1");
+                switch (SceneSelection)
+                {
+                    case 1:
+                        PhotonNetwork.LoadLevel("MultipSce1");
+                        break;
+                    case 2:
+                        PhotonNetwork.LoadLevel("Scene2");
+                        break;
+                    case 3:
+                        PhotonNetwork.LoadLevel("Scene3");
+                        break;
+
+
+                }
+
             }
         }
     void OnJoinRooomButtonClicked(string _roomName)

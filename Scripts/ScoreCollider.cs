@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ScoreCollider : MonoBehaviour
+using System;
+
+public class ScoreCollider : MonoBehaviourPunCallbacks
 {
-    public static int xx;
+    public int xx;
     PhotonView photonView;
     public List<GameObject> prize = new List<GameObject>();
 
@@ -36,16 +38,31 @@ public class ScoreCollider : MonoBehaviour
         {
            // Debug.Log("Global pRIze");
             xx = xx + 1;
-            Debug.Log("xx " + xx);
+            //Debug.Log("xx " + xx);
             //PRizeScore.instance.
             GetI(xx);
-            // GameManSinglePlayer.gameManSIgleInstance.Get_Total();
+             GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx,photonView.ViewID );
             //photonView.RPC("GetI", RpcTarget.All, xx);
-            Debug.Log("photonviewiD " + photonView.ViewID);
-            GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx, photonView.ViewID);
+           // Debug.Log("photonviewiD " + photonView.ViewID);
+            //GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx, photonView.ViewID);
+            //photonView.RPC("GameManSinglePlayer.gameManSIgleInstance.Get_Total", RpcTarget.All, xx, photonView.ViewID);
+          byte evCode=0;
+          bool reliable = true;
+       
+           object[] datas = new object[]{
+                xx,
+                photonView.ViewID
+
+           };
+           //RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        
+        //PhotonNetwork.RaiseEvent(evCode, datas,)
+
         }
 
     }
+  
+  
 
     [PunRPC]
     public void GetI(int hit)

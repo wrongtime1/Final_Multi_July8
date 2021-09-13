@@ -34,6 +34,8 @@ public class PCubePlayerR : MonoBehaviour
     public int ID;
 
     PhotonView photonView;
+
+    Vector3 po;
     void Start()
     {
         if (instance == null)
@@ -41,6 +43,13 @@ public class PCubePlayerR : MonoBehaviour
             instance = this;
         }
         amount = 0;
+
+        if (player == null)
+        {
+            return;
+        }
+
+        po = player.transform.position;
     }
 
     public void Update()
@@ -51,8 +60,11 @@ public class PCubePlayerR : MonoBehaviour
     }
     public Vector3 lasPo()
     {
-        Vector3 po = player.transform.position;
-        return po;
+        //if (po != null) 
+     
+        
+            return po;
+       
     }
     void CalculateDistance()
     {

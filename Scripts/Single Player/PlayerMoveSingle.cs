@@ -21,7 +21,7 @@ public class PlayerMoveSingle :  MonoBehaviourPunCallbacks
     public FixedTouchField fixedTouchField;
 
     [SerializeField]
-    private float lookSensitivity = 3;
+    private float lookSensitivity = 2;
     //Git  hub
     //public Button fireButn;
 
@@ -156,15 +156,15 @@ public class PlayerMoveSingle :  MonoBehaviourPunCallbacks
             //photonView.RPC("AnimatorV", RpcTarget.All);
             // RpcTarget.All( AnimatorV());
             AnimatorV();
-            //AnimatorInfo();
+        //AnimatorInfo();
 
-            ////if (Physics.Raycast(this.transform.position, Vector3.down, out hit, layerMask1))
-            {
+        //if (Physics.Raycast(this.transform.position, Vector3.down, out hit, layerMask1))
+        {
             if ((m_ClipName != "walking backward" || m_ClipName != "injury1" || m_ClipName != "injury3" || m_ClipName != "injury2") && hit.distance > 1.2f) //addinjure
             {
                 if (hit.distance > 1.19)  // 0.968807 , 1.188961f
                 {
-                   
+
 
                     //preventJump = true;
                     //rb.AddForce(Vector3.up * 0.7f, ForceMode.Impulse);
@@ -222,7 +222,8 @@ public class PlayerMoveSingle :  MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.tag=="Floor")
         {
-           // jump = false;
+            // jump = false;
+           // this.transform.position = Vector3.down;
         }
     }
     private void Rotate(Vector3 rotateVector)

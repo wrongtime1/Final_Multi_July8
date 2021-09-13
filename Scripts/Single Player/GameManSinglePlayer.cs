@@ -10,6 +10,10 @@ using System;
 
 public class GameManSinglePlayer : MonoBehaviour
 {
+
+[SerializeField]
+public Text pointText;
+
     [Header("Placements")]
     public List<GameObject> placements = new List<GameObject>();
 
@@ -67,11 +71,29 @@ public class GameManSinglePlayer : MonoBehaviour
     public PhotonView photonView;
 
 
+    [Header("spawninfor")]
+    int SpawnPicker;
+    public Transform[] SpawnPointTransforms;
+
+    [Header("Winning Information")]
+    [SerializeField]
+    public GameObject Lev2Canvas;
+
+
 
     void Awake()
     {
 
-        gameManSIgleInstance = this;
+
+        if (gameManSIgleInstance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            gameManSIgleInstance = this;
+
+        }
         photonView = GetComponent<PhotonView>();
 
     }
@@ -80,7 +102,9 @@ public class GameManSinglePlayer : MonoBehaviour
 
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
 
+        
         if (SelectionScript.selectionScript.MultiBool)
         {
 
@@ -94,12 +118,12 @@ public class GameManSinglePlayer : MonoBehaviour
             Select();
         }
 
-
-
-
-
+        
     }
 
+  
+    
+    
     public void SelectMulti()
     {
         if (PhotonNetwork.IsConnectedAndReady)
@@ -111,33 +135,34 @@ public class GameManSinglePlayer : MonoBehaviour
                 // player.transform.parent = newParent.transform;
 
                 //GameObject x = Instantiate(d, UIcontrols.transform.position, UIcontrols.transform.rotation);
-                Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
+                //Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
                 
                 if (CharcCHanger.charChanger._playerMultChar == 0)
                 {
-                    
+                    placements.Shuffle();
                     foreach (var item in placements)
                     {
-                        placements.Shuffle();
-                        
-                        
-                            GameObject a = Instantiate(item);
+                       
+                      
+                       
+                           /// GameObject a = Instantiate(item);
                          
-                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                         // Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
                             
-                            a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, pos, Quaternion.identity);
-                            ab.transform.position = pos;
-                            //a.transform.position = ab.transform.position;
-                            if (a.transform.position == null)
-                            {
-                                ab.transform.SetParent(a.transform, true);
-                                break;
-                            }
-                            else if (a.transform.position != null)
-                            {
-                                return;
-                            }
+                           // a.transform.position = pos;
+                            PhotonNetwork.Instantiate(MuRedman.name, item.transform.position, item.transform.rotation);
+
+                        break;//ab.transform.position = item.transform.position;
+                           
+                            //if (a.transform.position == null)
+                            //{
+                            //    ab.transform.SetParent(a.transform, true);
+                            //    break;
+                            //}
+                            //else if (a.transform.position != null)
+                            //{
+                            //    return;
+                            //}
 
                            
                             // ab.transform.SetParent(a.transform, true);
@@ -159,53 +184,53 @@ public class GameManSinglePlayer : MonoBehaviour
                 {
 
 
-                   
-                   // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+
+                    // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
                     foreach (var item in placements)
                     {
                         placements.Shuffle();
-                       
-
-                          
-                            GameObject a = Instantiate(item);
-                         
-                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                           
-                            a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, pos, Quaternion.identity);
-                            ab.transform.position = pos;
-                      
-                            if (a.transform.position == null)
-                            {
-                                ab.transform.SetParent(a.transform, true);
-                                break;
-                            }
-                            else if (a.transform.position != null)
-                            {
-                                return;
-                            }
 
 
-                            // ab.transform.SetParent(a.transform, true);
-                            //a.transform.position = ab.transform.position;
-                            //item.transform.SetParent(a.transform, true);
-                            //  Debug.Log(item.transform.position.ToString());
-                            // Debug.Log(item.transform.name.ToString());
 
-                            //a.transform.position = item.transform.position;
+                        GameObject a = Instantiate(item);
+
+                        Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+
+                        a.transform.position = pos;
+                        GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, pos, Quaternion.identity);
+                        ab.transform.position = pos;
+
+                        if (a.transform.position == null)
+                        {
+                            ab.transform.SetParent(a.transform, true);
+                            break;
+                        }
+                        else if (a.transform.position != null)
+                        {
+                            return;
+                        }
 
 
-                            //}
+                        // ab.transform.SetParent(a.transform, true);
+                        //a.transform.position = ab.transform.position;
+                        //item.transform.SetParent(a.transform, true);
+                        //  Debug.Log(item.transform.position.ToString());
+                        // Debug.Log(item.transform.name.ToString());
 
-                       
+                        //a.transform.position = item.transform.position;
+
+
+                        //}
+
+
                     }
 
 
                 }
                 if (CharcCHanger.charChanger._playerMultChar == 2)
                 {
-                 
-                        foreach (var item in placements)
+
+                    foreach (var item in placements)
                     {
                         placements.Shuffle();
                         if (item.transform.childCount == 0)
@@ -224,7 +249,7 @@ public class GameManSinglePlayer : MonoBehaviour
                             a.transform.position = pos;
                             GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
                             ab.transform.position = pos;
-                            
+
                             if (a.transform.position == null)
                             {
                                 ab.transform.SetParent(a.transform, true);
@@ -287,8 +312,8 @@ public class GameManSinglePlayer : MonoBehaviour
                                 return;
                             }
 
-                   
-                        
+
+
 
                         }
                         else
@@ -308,8 +333,8 @@ public class GameManSinglePlayer : MonoBehaviour
                 if (CharcCHanger.charChanger._playerMultChar == 4)
                 {
 
-                   
-                         foreach (var item in placements)
+
+                    foreach (var item in placements)
                     {
                         placements.Shuffle();
                         if (item.transform.childCount == 0)
@@ -474,9 +499,12 @@ public class GameManSinglePlayer : MonoBehaviour
     }
 
 
+[PunRPC]
     public void Get_Total(int amount, int ID)
     {
         Debug.Log("amount " + amount + " id "  + ID);
+        pointText.text= ID.ToString();
+        //Time.timeScale=0;
     }
     //public void TimerRe()
     //{

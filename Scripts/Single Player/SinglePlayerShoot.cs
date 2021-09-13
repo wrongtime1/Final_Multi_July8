@@ -60,7 +60,7 @@ public class SinglePlayerShoot : MonoBehaviour
     public Transform rifleBackHolster;
 
 
-    private PhotonAnimatorView photonAnim;
+   
 
     AnimatorClipInfo[] m_CurrentClipInfo;
     AnimatorClipInfo[] photon_CurrentClipInfo;
@@ -104,7 +104,7 @@ public class SinglePlayerShoot : MonoBehaviour
 
     }
 
-    public void LateUpdate()
+    public void FixedUpdate()
     {
 
 
@@ -113,7 +113,7 @@ public class SinglePlayerShoot : MonoBehaviour
         {
             if (currentWeight <= 0.99f)
             {
-                Debug.Log("Up");
+              
                 currentWeight = Mathf.Lerp(currentWeight, 1.0f, Time.deltaTime * 6f);
                 anim.SetLayerWeight(1, currentWeight);
             }
@@ -270,196 +270,196 @@ public class SinglePlayerShoot : MonoBehaviour
 
 
 
-    void FixedUpdate()
-    {
-        #region TurnVector
-        // m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(3);
-        // m_ClipName = this.m_CurrentClipInfo[3].clip.name;
-        //anim.SetBool("IsShooting", true);
+    //void FixedUpdate()
+    //{
+    //    #region TurnVector
+    //    // m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(3);
+    //    // m_ClipName = this.m_CurrentClipInfo[3].clip.name;
+    //    //anim.SetBool("IsShooting", true);
 
 
-        //Vector3 rot = new Vector3(0, Mathf.Lerp(0, 90f, 2.0f * Time.deltaTime), 0);
-        //practiceRifle.eulerAngles = rot;
+    //    //Vector3 rot = new Vector3(0, Mathf.Lerp(0, 90f, 2.0f * Time.deltaTime), 0);
+    //    //practiceRifle.eulerAngles = rot;
 
-        //Quaternion rotatio = Quaternion.Euler(0, 30.0f * Time.deltaTime, 0);
-        //practiceRifle.rotation = rotatio;
-        //practiceRifle.transform.rotation = rotatio;
-        // Mathf.Clamp(20.0f * Time.deltaTime, 0, 30f),
-        //practiceRifle.transform.position = new Vector3(-0.75f, 0.0f, 0.0f);
+    //    //Quaternion rotatio = Quaternion.Euler(0, 30.0f * Time.deltaTime, 0);
+    //    //practiceRifle.rotation = rotatio;
+    //    //practiceRifle.transform.rotation = rotatio;
+    //    // Mathf.Clamp(20.0f * Time.deltaTime, 0, 30f),
+    //    //practiceRifle.transform.position = new Vector3(-0.75f, 0.0f, 0.0f);
 
-        //works with hesitation
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.x, 90.0f, -30.0F);
-        //practiceRifle.transform.Rotate(rotationX * Time.deltaTime, 0.0f, 0.0f, Space.World);
+    //    //works with hesitation
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.x, 90.0f, -30.0F);
+    //    //practiceRifle.transform.Rotate(rotationX * Time.deltaTime, 0.0f, 0.0f, Space.World);
 
-        //wroks for y
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.y, 90.0f, -30.0F);
-        //practiceRifle.transform.Rotate(0.0f,rotationX * Time.deltaTime,  0.0f, Space.World);
+    //    //wroks for y
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.y, 90.0f, -30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f,rotationX * Time.deltaTime,  0.0f, Space.World);
 
-        //wroks for z
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, 90.0f, -30.0F);
-        //practiceRifle.transform.Rotate(0.0f,  0.0f, rotationX * Time.deltaTime, Space.World);
+    //    //wroks for z
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, 90.0f, -30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f,  0.0f, rotationX * Time.deltaTime, Space.World);
 
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, 90.0f, 30.0F);
-        //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.World);
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, 90.0f, 30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.World);
 
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -90.0f, 30.0F);
-        //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -90.0f, 30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
 
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -90.0f, -30.0F);
-        //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -90.0f, -30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
 
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -30.0f, 30.0F);
-        //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, -30.0f, 30.0F);
+    //    //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
 
-        //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, practiceRifle.eulerAngles.z - 45.0f, -10.0F);
-        //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
-
-
-
-        //practiceRifle.x = Mathf.Clamp(pivotRotation.x, -90.0F, 0.0F);
-        // practiceRifle.eulerAngles = pivotRotation;
-
-        // float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.x, -90.0F, 0.0F);
-        //practiceRifle.rotation = Quaternion.Euler(rotationX*  Time.deltaTime, transform.eulerAngles.y, transform.eulerAngles.z);
-
-        //practiceRifle.transform.rotation = Quaternion.FromToRotation(Vector3.right * Time.deltaTime * 2.0f, transform.forward );
-
-        //float angle = 30.0f;
-        //Vector3 axis = Vector3.right;
-        //practiceRifle.transform.rotation.ToAngleAxis(out angle, out axis);
-
-        //practiceRifle.transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, timeCount);
-        //float timeCount = timeCount + Time.deltaTime;
-        #endregion
-        //photonView = GetComponent<PhotonView>();
-        //if (photonView.IsMine)
-        //{
-        //    if (photonView.gameObject.activeInHierarchy)
-        //    {
-
-
-        //        if (ChangeWeaponSLider.value == 1)
-        //        {
-
-        //            StartCoroutine(RiflePaste1());
-        //            // photonView.RPC(StartCoroutine("RiflePaste1"), RpcTarget.All);
-        //            //photonView.StartCoroutine()
-        //            //photonView.RPC("Loadrifle", RpcTarget.AllBuffered);
-        //            //StartCoroutine("RiflePaste1");
-
-        //            anim.SetLayerWeight(3, 1);
-        //            anim.SetBool("IsDrawing", true);
-
-
-        //            // rifleTransform.transform.SetParent(rifleHolster, true);
-        //            // rifleTransform.transform.position = rifleHolster.transform.position; //set the rifle to the hand that is drwaing rifle         
-        //            // Vector3 rotation1 = new Vector3(rifleTransform.transform.position.x, rifleTransform.transform.position.y, 90.175f);
-        //            // rifleTransform.transform.eulerAngles = rotation1;
-
-
-        //            //Loadrifle();
-        //            // Debug.Log(anim.GetCurrentAnimatorStateInfo(3));
-
-        //            //if (m_ClipName == "Rifle_idle")
-        //            //{
-        //            //    //realRifle.transform.position = dummRifle.transform.position;
-        //            //}
-        //            reholster = true;
-        //        }
-        //        if (ChangeWeaponSLider.value == 0 && reholster == true)
-        //        {
-        //            // anim.SetLayerWeight(3, 0); 
-        //            anim.SetBool("IsDrawing", false);
-        //            Vector3 rotation = new Vector3(rifleTransform.transform.position.x, rifleTransform.transform.position.y, rifleTransform.transform.position.z);
-        //            rifleTransform.transform.eulerAngles = rotation;
-
-        //            Vector3 rot2 = new Vector3(118.832f, 34.0f, 47.11f);
-        //            rifleTransform.transform.SetParent(rifleHolster, true);
-        //            rifleTransform.transform.localPosition = new Vector3(-0.062f, -0.131f, -0.071f);
-        //            rifleTransform.transform.localRotation = Quaternion.Euler(rot2);
-        //            dummyRifle.GetComponent<MeshRenderer>().enabled = false;
-        //            //st a cour-touine to call this
-        //            StartCoroutine("RiflePaste");
-
-        //            rifleTransform.transform.SetParent(null);
-        //            //Vector3 rot = new Vector3(0.0f, 0.0f, 53.74f);
-        //            //rifleTransform.transform.SetParent(rifleBackHolster);
-        //            //rifleTransform.transform.localPosition = new Vector3(0.087f, 0.134f, 0.079f);
-        //            //rifleTransform.transform.localRotation = Quaternion.Euler(rot);
+    //    //float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.z, practiceRifle.eulerAngles.z - 45.0f, -10.0F);
+    //    //practiceRifle.transform.Rotate(0.0f, 0.0f, rotationX * Time.deltaTime, Space.Self);
 
 
 
-        //            #region first
-        //            //Vector3 position  = new Vector3(rifleTransform.transform.position.x, -0.18f, rifleTransform.transform.position.z);
-        //            // rifleTransform.transform.position = rifleHolster.transform.position;
-        //            //rifleTransform.transform.position = position;
-        //            // rifleTransform.transform.SetParent(rifleHolster);
-        //            //--------------------------------------
-        //            //rifleTransform.transform.position = rifleBackHolster.transform.position ;
+    //    //practiceRifle.x = Mathf.Clamp(pivotRotation.x, -90.0F, 0.0F);
+    //    // practiceRifle.eulerAngles = pivotRotation;
 
-        //            //rifleTransform.transform.position = rifleHolster.transform.position;
-        //            // Vector3 transPos = new Vector3(-0.023f, -0.21f, -0.185f);
-        //            // dummRifleContainer.localPosition = transPos;
-        //            // Vector3 rot = new Vector3(0.983f, -29.674f, -22.601f);
-        //            //dummRifleContainer.localEulerAngles = rot;
-        //            // Quaternion x = Quaternion.Euler(rot);
-        //            // dummRifleContainer.localRotation = x;
-        //            //dummyRifle.GetComponent<MeshRenderer>().enabled = false;
-        //            //HIde first rifle
-        //            #endregion first
-        //            rifleTransform.gameObject.SetActive(true);
+    //    // float rotationX = Mathf.Clamp(practiceRifle.eulerAngles.x, -90.0F, 0.0F);
+    //    //practiceRifle.rotation = Quaternion.Euler(rotationX*  Time.deltaTime, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        //            //----------------------------------------
+    //    //practiceRifle.transform.rotation = Quaternion.FromToRotation(Vector3.right * Time.deltaTime * 2.0f, transform.forward );
 
-        //            reholster = false;
+    //    //float angle = 30.0f;
+    //    //Vector3 axis = Vector3.right;
+    //    //practiceRifle.transform.rotation.ToAngleAxis(out angle, out axis);
+
+    //    //practiceRifle.transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, timeCount);
+    //    //float timeCount = timeCount + Time.deltaTime;
+    //    #endregion
+    //    //photonView = GetComponent<PhotonView>();
+    //    //if (photonView.IsMine)
+    //    //{
+    //    //    if (photonView.gameObject.activeInHierarchy)
+    //    //    {
 
 
-        //        }
+    //    //        if (ChangeWeaponSLider.value == 1)
+    //    //        {
 
-        //        if (ChangeWeaponSLider.value == 0 && reholster == false)
-        //        {
-        //            if (liftArm && currentWeight <= 0.99)
-        //            {
+    //    //            StartCoroutine(RiflePaste1());
+    //    //            // photonView.RPC(StartCoroutine("RiflePaste1"), RpcTarget.All);
+    //    //            //photonView.StartCoroutine()
+    //    //            //photonView.RPC("Loadrifle", RpcTarget.AllBuffered);
+    //    //            //StartCoroutine("RiflePaste1");
 
-        //                currentWeight = Mathf.Lerp(currentWeight, 1.0f, Time.deltaTime * 6f);
-        //                anim.SetLayerWeight(1, currentWeight);
-
-        //                //Debug.Log(" liftArm ");
-        //                //photonAnim.SetLayerSynchronized(1, currentWeight);
-
-        //                // rifleHolster.transform.SetParent(rifleBackHolster);
+    //    //            anim.SetLayerWeight(3, 1);
+    //    //            anim.SetBool("IsDrawing", true);
 
 
-        //            }
-        //            if (liftArm == false)
-        //            {
-        //                currentWeight = Mathf.Lerp(currentWeight, 0.0f, Time.deltaTime * 6f);
-        //                anim.SetLayerWeight(1, currentWeight);
-        //                if (ChangeWeaponSLider.value == 1)
-        //                {
-        //                    anim.SetBool("IsShooting", false);
-        //                }
-        //                CancelInvoke("LaunchBullet");
-        //            }
-        //        }
-        //        //Rifle fire
-        //        for (int i = 0; i < m_CurrentClipInfo.Count(); i++)
-        //        {
-        //            if (ChangeWeaponSLider.value == 1 && m_CurrentClipInfo[i].clip.name == "FiringRifle")
-        //            {
-        //                // transform.position = new Vector3(Mathf.Lerp(minimum, maximum, t), 0, 0);
-        //                startX = new Vector3(Mathf.Lerp(dummRifleContainer.localPosition.x, RiflePosFire.x + 0.09f, 60f * Time.deltaTime), 0, 0);
-        //                startY = new Vector3(0, Mathf.Lerp(dummRifleContainer.localPosition.y, RiflePosFire.y + 0.1f, 60f * Time.deltaTime), 0);
-        //                startZ = new Vector3(0, 0, Mathf.Lerp(dummRifleContainer.localPosition.z, RiflePosFire.z, 60f * Time.deltaTime));
+    //    //            // rifleTransform.transform.SetParent(rifleHolster, true);
+    //    //            // rifleTransform.transform.position = rifleHolster.transform.position; //set the rifle to the hand that is drwaing rifle         
+    //    //            // Vector3 rotation1 = new Vector3(rifleTransform.transform.position.x, rifleTransform.transform.position.y, 90.175f);
+    //    //            // rifleTransform.transform.eulerAngles = rotation1;
 
-        //                dummRifleContainer.transform.localPosition = (startX + startY + startZ);
-        //                dummRifleContainer.transform.localRotation = Quaternion.Euler(RifleTurnFire);
 
-        //            }
-        //        }
-        //    }
-        //}
-    }
+    //    //            //Loadrifle();
+    //    //            // Debug.Log(anim.GetCurrentAnimatorStateInfo(3));
+
+    //    //            //if (m_ClipName == "Rifle_idle")
+    //    //            //{
+    //    //            //    //realRifle.transform.position = dummRifle.transform.position;
+    //    //            //}
+    //    //            reholster = true;
+    //    //        }
+    //    //        if (ChangeWeaponSLider.value == 0 && reholster == true)
+    //    //        {
+    //    //            // anim.SetLayerWeight(3, 0); 
+    //    //            anim.SetBool("IsDrawing", false);
+    //    //            Vector3 rotation = new Vector3(rifleTransform.transform.position.x, rifleTransform.transform.position.y, rifleTransform.transform.position.z);
+    //    //            rifleTransform.transform.eulerAngles = rotation;
+
+    //    //            Vector3 rot2 = new Vector3(118.832f, 34.0f, 47.11f);
+    //    //            rifleTransform.transform.SetParent(rifleHolster, true);
+    //    //            rifleTransform.transform.localPosition = new Vector3(-0.062f, -0.131f, -0.071f);
+    //    //            rifleTransform.transform.localRotation = Quaternion.Euler(rot2);
+    //    //            dummyRifle.GetComponent<MeshRenderer>().enabled = false;
+    //    //            //st a cour-touine to call this
+    //    //            StartCoroutine("RiflePaste");
+
+    //    //            rifleTransform.transform.SetParent(null);
+    //    //            //Vector3 rot = new Vector3(0.0f, 0.0f, 53.74f);
+    //    //            //rifleTransform.transform.SetParent(rifleBackHolster);
+    //    //            //rifleTransform.transform.localPosition = new Vector3(0.087f, 0.134f, 0.079f);
+    //    //            //rifleTransform.transform.localRotation = Quaternion.Euler(rot);
+
+
+
+    //    //            #region first
+    //    //            //Vector3 position  = new Vector3(rifleTransform.transform.position.x, -0.18f, rifleTransform.transform.position.z);
+    //    //            // rifleTransform.transform.position = rifleHolster.transform.position;
+    //    //            //rifleTransform.transform.position = position;
+    //    //            // rifleTransform.transform.SetParent(rifleHolster);
+    //    //            //--------------------------------------
+    //    //            //rifleTransform.transform.position = rifleBackHolster.transform.position ;
+
+    //    //            //rifleTransform.transform.position = rifleHolster.transform.position;
+    //    //            // Vector3 transPos = new Vector3(-0.023f, -0.21f, -0.185f);
+    //    //            // dummRifleContainer.localPosition = transPos;
+    //    //            // Vector3 rot = new Vector3(0.983f, -29.674f, -22.601f);
+    //    //            //dummRifleContainer.localEulerAngles = rot;
+    //    //            // Quaternion x = Quaternion.Euler(rot);
+    //    //            // dummRifleContainer.localRotation = x;
+    //    //            //dummyRifle.GetComponent<MeshRenderer>().enabled = false;
+    //    //            //HIde first rifle
+    //    //            #endregion first
+    //    //            rifleTransform.gameObject.SetActive(true);
+
+    //    //            //----------------------------------------
+
+    //    //            reholster = false;
+
+
+    //    //        }
+
+    //    //        if (ChangeWeaponSLider.value == 0 && reholster == false)
+    //    //        {
+    //    //            if (liftArm && currentWeight <= 0.99)
+    //    //            {
+
+    //    //                currentWeight = Mathf.Lerp(currentWeight, 1.0f, Time.deltaTime * 6f);
+    //    //                anim.SetLayerWeight(1, currentWeight);
+
+    //    //                //Debug.Log(" liftArm ");
+    //    //                //photonAnim.SetLayerSynchronized(1, currentWeight);
+
+    //    //                // rifleHolster.transform.SetParent(rifleBackHolster);
+
+
+    //    //            }
+    //    //            if (liftArm == false)
+    //    //            {
+    //    //                currentWeight = Mathf.Lerp(currentWeight, 0.0f, Time.deltaTime * 6f);
+    //    //                anim.SetLayerWeight(1, currentWeight);
+    //    //                if (ChangeWeaponSLider.value == 1)
+    //    //                {
+    //    //                    anim.SetBool("IsShooting", false);
+    //    //                }
+    //    //                CancelInvoke("LaunchBullet");
+    //    //            }
+    //    //        }
+    //    //        //Rifle fire
+    //    //        for (int i = 0; i < m_CurrentClipInfo.Count(); i++)
+    //    //        {
+    //    //            if (ChangeWeaponSLider.value == 1 && m_CurrentClipInfo[i].clip.name == "FiringRifle")
+    //    //            {
+    //    //                // transform.position = new Vector3(Mathf.Lerp(minimum, maximum, t), 0, 0);
+    //    //                startX = new Vector3(Mathf.Lerp(dummRifleContainer.localPosition.x, RiflePosFire.x + 0.09f, 60f * Time.deltaTime), 0, 0);
+    //    //                startY = new Vector3(0, Mathf.Lerp(dummRifleContainer.localPosition.y, RiflePosFire.y + 0.1f, 60f * Time.deltaTime), 0);
+    //    //                startZ = new Vector3(0, 0, Mathf.Lerp(dummRifleContainer.localPosition.z, RiflePosFire.z, 60f * Time.deltaTime));
+
+    //    //                dummRifleContainer.transform.localPosition = (startX + startY + startZ);
+    //    //                dummRifleContainer.transform.localRotation = Quaternion.Euler(RifleTurnFire);
+
+    //    //            }
+    //    //        }
+    //    //    }
+    //    //}
+    //}
 
     //load rifle to hand
     [PunRPC]
@@ -597,29 +597,29 @@ public class SinglePlayerShoot : MonoBehaviour
 
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        if (scene.buildIndex == 3)
-        {
+        //if (scene.buildIndex == 3)
+        //{
 
-            SoundManagerSingle.instance.PlayerSHoot();
-            GameObject obj = ObjectPooler.current.GetPooledObject();
-            obj.SetActive(true);
-            obj.transform.position = shooter.transform.position;
-            obj.transform.rotation = shooter.transform.rotation;
-            obj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-            obj.GetComponent<Rigidbody>().useGravity = false;
-            obj.GetComponent<Rigidbody>().velocity = transform.forward * 25f;
+        //    SoundManagerSingle.instance.PlayerSHoot();
+        //    GameObject obj = ObjectPooler.current.GetPooledObject();
+        //    obj.SetActive(true);
+        //    obj.transform.position = shooter.transform.position;
+        //    obj.transform.rotation = shooter.transform.rotation;
+        //    obj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        //    obj.GetComponent<Rigidbody>().useGravity = false;
+        //    obj.GetComponent<Rigidbody>().velocity = transform.forward * 25f;
 
-            Physics.IgnoreCollision(obj.GetComponent<Collider>(), GetComponent<Collider>());
+        //    Physics.IgnoreCollision(obj.GetComponent<Collider>(), GetComponent<Collider>());
 
 
-            if (obj == null) return;
-        }
+        //    if (obj == null) return;
+        //}
 
 
 
         if (photonView.IsMine)
         {
-            //ObjectPooler.current.Practice();
+           
             SoundManagerSingle.instance.PlayerSHoot();
 
 

@@ -23,15 +23,9 @@ public class DestroyBulletSingleEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("World") || other.gameObject.CompareTag("Player"))
         {
-           // Destroy(this.gameObject, 0.2f);
+            Destroy(this.gameObject, 0.2f);
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(this.gameObject,0.2f);
-        }
-    }
+  
 }

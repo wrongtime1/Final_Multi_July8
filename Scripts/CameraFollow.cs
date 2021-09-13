@@ -50,7 +50,7 @@ public class CameraFollow : MonoBehaviour
         RaycastHit wallHits = new RaycastHit();
         if(Physics.Linecast(fromObject, toTarget, out wallHits, mask))
         {
-            Debug.DrawRay(wallHits.point, Vector3.left, Color.black);
+          //  Debug.DrawRay(wallHits.point, Vector3.left, Color.black);
            // Debug.Log(wallHits.collider.name);
             toTarget = new Vector3(wallHits.point.x, toTarget.y, wallHits.point.z);
         }
