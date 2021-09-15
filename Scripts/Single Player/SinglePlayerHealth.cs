@@ -376,8 +376,8 @@ public class SinglePlayerHealth : MonoBehaviour
         shieldHit = 0;
         //Debug.Log("health  from restat" + healthHit);
         sheildSlider.value = 0;
-
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        PhotonNetwork.Destroy(this.gameObject);
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
     }
 
 
