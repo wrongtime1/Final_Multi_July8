@@ -6,11 +6,10 @@ using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using System;
 
-<<<<<<< HEAD
-using System;
 
-=======
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+
+
+
 public class ScoreCollider : MonoBehaviourPunCallbacks
 {
     public int xx;
@@ -49,23 +48,23 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
            Debug.Log("timerTrigger " + timerTrigger);
            if(timerTrigger==true){
             xx = xx + 1;
-<<<<<<< HEAD
+
             //Debug.Log("xx " + xx);
             //PRizeScore.instance.
             GetI(xx);
-=======
+
             
             //Debug.Log("xx " + xx);
             //PRizeScore.instance.
             GetI(xx);
            }
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+
              GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx,photonView.ViewID );
             //photonView.RPC("GetI", RpcTarget.All, xx);
            // Debug.Log("photonviewiD " + photonView.ViewID);
             //GameManSinglePlayer.gameManSIgleInstance.Get_Total(xx, photonView.ViewID);
             //photonView.RPC("GameManSinglePlayer.gameManSIgleInstance.Get_Total", RpcTarget.All, xx, photonView.ViewID);
-<<<<<<< HEAD
+
           byte evCode=0;
           bool reliable = true;
        
@@ -83,7 +82,7 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
     }
   
   
-=======
+
          
            //RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All };
         
@@ -91,9 +90,7 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
        // GetComponentInParent<PhotonView>().RPC("Get_Total", RpcTarget.Others, xx, photonView.ViewID) ;
        
       
-        }
-
-    }
+    
   
     void OnTriggerExit(Collider other){
         if (other.gameObject.CompareTag("GlobalPRize"))
@@ -119,7 +116,7 @@ public class ScoreCollider : MonoBehaviourPunCallbacks
      
     }
   }
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+
 
     [PunRPC]
     public void GetI(int hit)

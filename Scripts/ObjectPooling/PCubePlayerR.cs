@@ -44,7 +44,7 @@ public class PCubePlayerR : MonoBehaviour
             instance = this;
         }
         amount = 0;
-<<<<<<< HEAD
+
 
         if (player == null)
         {
@@ -52,12 +52,12 @@ public class PCubePlayerR : MonoBehaviour
         }
 
         po = player.transform.position;
-=======
+
         player = GameObject.FindGameObjectWithTag("Player");
 
 
 
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+
     }
 
     public void Update()

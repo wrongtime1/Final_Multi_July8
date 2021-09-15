@@ -78,7 +78,7 @@ public Text pointText;
     [SerializeField]
     public GameObject Lev2Canvas;
 
-<<<<<<< HEAD
+
     [Header("spawninfor")]
     int SpawnPicker;
     public Transform[] SpawnPointTransforms;
@@ -88,18 +88,11 @@ public Text pointText;
     public GameObject Lev2Canvas;
 
 
-=======
-    
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
 
     void Awake()
     {
 
-<<<<<<< HEAD
 
-=======
-     
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
         if (gameManSIgleInstance != null)
         {
             Destroy(this.gameObject);
@@ -133,14 +126,12 @@ public Text pointText;
             Select();
         }
 
-<<<<<<< HEAD
-        
-=======
+
 
         scene = SceneManager.GetActiveScene();
 
 
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+
     }
 
   
@@ -158,27 +149,27 @@ public Text pointText;
                     //Makes the GameObject "newParent" the parent of the GameObject "player".
                     // player.transform.parent = newParent.transform;
 
-<<<<<<< HEAD
-                //GameObject x = Instantiate(d, UIcontrols.transform.position, UIcontrols.transform.rotation);
-                //Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
-                
-                if (CharcCHanger.charChanger._playerMultChar == 0)
-                {
-                    placements.Shuffle();
-                    foreach (var item in placements)
+
+                    //GameObject x = Instantiate(d, UIcontrols.transform.position, UIcontrols.transform.rotation);
+                    //Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
+
+                    if (CharcCHanger.charChanger._playerMultChar == 0)
                     {
-                       
-                      
-                       
-                           /// GameObject a = Instantiate(item);
-                         
-                         // Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                            
-                           // a.transform.position = pos;
+                        placements.Shuffle();
+                        foreach (var item in placements)
+                        {
+
+
+
+                            /// GameObject a = Instantiate(item);
+
+                            // Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+
+                            // a.transform.position = pos;
                             PhotonNetwork.Instantiate(MuRedman.name, item.transform.position, item.transform.rotation);
 
-                        break;//ab.transform.position = item.transform.position;
-                           
+                            break;//ab.transform.position = item.transform.position;
+
                             //if (a.transform.position == null)
                             //{
                             //    ab.transform.SetParent(a.transform, true);
@@ -188,579 +179,574 @@ public Text pointText;
                             //{
                             //    return;
                             //}
-=======
-                    //GameObject x = Instantiate(d, UIcontrols.transform.position, UIcontrols.transform.rotation);
-                    Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
 
-                    if (CharcCHanger.charChanger._playerMultChar == 0)
-                    {
+                            //GameObject x = Instantiate(d, UIcontrols.transform.position, UIcontrols.transform.rotation);
+                            Vector3 position1 = new Vector3(UnityEngine.Random.Range(-30.0f, 30.0f), 0.0f, 0.0f);
 
-                        foreach (var item in placements)
-                        {
-                            placements.Shuffle();
-
-
-                            GameObject a = Instantiate(item);
-
-                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-
-                            SpawnPicker = UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
-
-                            a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation, 0);
-                            //ab.transform.position = pos;
-                            //a.transform.position = ab.transform.position;
-                            if (a.transform.position == null)
+                            if (CharcCHanger.charChanger._playerMultChar == 0)
                             {
-                                ab.transform.SetParent(a.transform, true);
-                                break;
+
+                                foreach (var item in placements)
+                                {
+                                    placements.Shuffle();
+
+
+                                    GameObject a = Instantiate(item);
+
+                                    Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+
+                                    SpawnPicker = UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
+
+                                    a.transform.position = pos;
+                                    GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation, 0);
+                                    //ab.transform.position = pos;
+                                    //a.transform.position = ab.transform.position;
+                                    if (a.transform.position == null)
+                                    {
+                                        ab.transform.SetParent(a.transform, true);
+                                        break;
+                                    }
+                                    else if (a.transform.position != null)
+                                    {
+                                        return;
+                                    }
+
+
+
+                                    // ab.transform.SetParent(a.transform, true);
+                                    //a.transform.position = ab.transform.position;
+                                    //item.transform.SetParent(a.transform, true);
+                                    //  Debug.Log(item.transform.position.ToString());
+                                    // Debug.Log(item.transform.name.ToString());
+
+                                    //a.transform.position = item.transform.position;
+
+
+                                    //}
+
+
+                                }
                             }
-                            else if (a.transform.position != null)
+
+                            if (CharcCHanger.charChanger._playerMultChar == 1)
                             {
-                                return;
+
+
+
+                                // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+                                foreach (var item in placements)
+                                {
+                                    placements.Shuffle();
+
+
+
+
+                                    // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+                                    foreach (var item in placements)
+                                    {
+                                        placements.Shuffle();
+
+
+
+                                        GameObject a = Instantiate(item);
+
+                                        Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                        SpawnPicker = UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
+
+                                        a.transform.position = pos;
+                                        GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation, 0);
+                                        // ab.transform.position = pos;
+
+                                        if (a.transform.position == null)
+                                        {
+                                            ab.transform.SetParent(a.transform, true);
+                                            break;
+                                        }
+                                        else if (a.transform.position != null)
+                                        {
+                                            return;
+                                        }
+
+
+
+                                        GameObject a = Instantiate(item);
+
+                                        Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+
+                                        a.transform.position = pos;
+                                        GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, pos, Quaternion.identity);
+                                        ab.transform.position = pos;
+
+                                        if (a.transform.position == null)
+                                        {
+                                            ab.transform.SetParent(a.transform, true);
+                                            break;
+                                        }
+                                        else if (a.transform.position != null)
+                                        {
+                                            return;
+                                        }
+
+
+                                        // ab.transform.SetParent(a.transform, true);
+                                        //a.transform.position = ab.transform.position;
+                                        //item.transform.SetParent(a.transform, true);
+                                        //  Debug.Log(item.transform.position.ToString());
+                                        // Debug.Log(item.transform.name.ToString());
+
+                                        //a.transform.position = item.transform.position;
+
+
+                                        //}
+
+
+                                    }
+
+
+                                }
+
+
                             }
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
+                            if (CharcCHanger.charChanger._playerMultChar == 2)
+                            {
+
+                                foreach (var item in placements) {
 
 
-                            // ab.transform.SetParent(a.transform, true);
-                            //a.transform.position = ab.transform.position;
-                            //item.transform.SetParent(a.transform, true);
-                            //  Debug.Log(item.transform.position.ToString());
-                            // Debug.Log(item.transform.name.ToString());
+                                }
+                                if (CharcCHanger.charChanger._playerMultChar == 2)
 
-                            //a.transform.position = item.transform.position;
+                                {
+
+                                    foreach (var item in placements)
+                                    {
+                                        placements.Shuffle();
+                                        if (item.transform.childCount == 0)
+                                        {
+
+                                            //if(item.transform.name== "firstPlaceMarlon")
+                                            //{
+                                            // Debug.Log(item.transform.position.ToString());
 
 
-                            //}
+
+                                            GameObject a = Instantiate(item);
+                                            //Vector3 pos = item.transform.position;
+                                            //-4.251999
+                                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                            //Debug.Log("pos " + a.transform.position);
+                                            a.transform.position = pos;
+                                            GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
+                                            ab.transform.position = pos;
+
+                                            if (a.transform.position == null)
+                                            {
+                                                ab.transform.SetParent(a.transform, true);
+                                                break;
+                                            }
+                                            else if (a.transform.position != null)
+                                            {
+                                                return;
+                                            }
+
+                                            GameObject a = Instantiate(item);
+                                            //Vector3 pos = item.transform.position;
+                                            //-4.251999
+                                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                            //Debug.Log("pos " + a.transform.position);
+                                            a.transform.position = pos;
+                                            GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
+                                            ab.transform.position = pos;
 
 
+                                            if (a.transform.position == null)
+                                            {
+                                                ab.transform.SetParent(a.transform, true);
+                                                break;
+                                            }
+                                            else if (a.transform.position != null)
+                                            {
+                                                return;
+                                            }
+
+
+                                            // ab.transform.SetParent(a.transform, true);
+                                            //a.transform.position = ab.transform.position;
+                                            //item.transform.SetParent(a.transform, true);
+                                            //  Debug.Log(item.transform.position.ToString());
+                                            // Debug.Log(item.transform.name.ToString());
+
+                                            //a.transform.position = item.transform.position;
+
+
+                                            //}
+
+                                        }
+                                        else
+                                        {
+                                            return;
+                                        }
+                                    }
+
+                                }
+                                if (CharcCHanger.charChanger._playerMultChar == 3)
+                                {
+                                    foreach (var item in placements)
+                                    {
+                                        placements.Shuffle();
+                                        if (item.transform.childCount == 0)
+                                        {
+
+                                            //if(item.transform.name== "firstPlaceMarlon")
+                                            //{
+                                            // Debug.Log(item.transform.position.ToString());
+
+
+                                            GameObject a = Instantiate(item);
+                                            //Vector3 pos = item.transform.position;
+                                            //-4.251999
+                                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                            //Debug.Log("pos " + a.transform.position);
+                                            a.transform.position = pos;
+                                            GameObject ab = PhotonNetwork.Instantiate(MuDark.name, pos, Quaternion.identity);
+                                            ab.transform.position = pos;
+                                            //a.transform.position = ab.transform.position;
+                                            if (a.transform.position == null)
+                                            {
+                                                ab.transform.SetParent(a.transform, true);
+                                                break;
+                                            }
+                                            else if (a.transform.position != null)
+                                            {
+                                                return;
+                                            }
+
+
+
+
+                                        }
+                                        else
+                                        {
+                                            return;
+                                        }
+                                    }
+
+
+                                    //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+                                    //a.transform.position = new Vector3(0, 0, 0);
+                                    //b = Instantiate(_ChangeCharacter3, a.transform.position, transform.rotation);
+                                    //b.transform.SetParent(a.transform, true);
+                                    //a.GetComponent<Animator>().avatar = Davat;
+
+
+                                }
+
+                                if (CharcCHanger.charChanger._playerMultChar == 4)
+                                {
+
+
+
+
+                                    foreach (var item in placements)
+                                    {
+                                        placements.Shuffle();
+                                        if (item.transform.childCount == 0)
+
+                                            foreach (var item in placements)
+
+                                            {
+                                                placements.Shuffle();
+                                                if (item.transform.childCount == 0)
+                                                {
+
+                                                    //if(item.transform.name== "firstPlaceMarlon")
+                                                    //{
+                                                    // Debug.Log(item.transform.position.ToString());
+
+
+                                                    GameObject a = Instantiate(item);
+                                                    //Vector3 pos = item.transform.position;
+                                                    //-4.251999
+                                                    Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                                    //Debug.Log("pos " + a.transform.position);
+                                                    a.transform.position = pos;
+                                                    GameObject ab = PhotonNetwork.Instantiate(MuLewis.name, pos, Quaternion.identity);
+                                                    ab.transform.position = pos;
+                                                    //a.transform.position = ab.transform.position;
+                                                    if (a.transform.position == null)
+                                                    {
+                                                        ab.transform.SetParent(a.transform, true);
+                                                        break;
+                                                    }
+                                                    else if (a.transform.position != null)
+                                                    {
+                                                        return;
+                                                    }
+
+
+
+
+                                                }
+                                                else
+                                                {
+                                                    return;
+                                                }
+                                            }
+
+                                        //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+                                        //a.transform.position = new Vector3(0, 0, 0);
+                                        //b = Instantiate(_ChangeCharacter4, a.transform.position, transform.rotation);
+                                        //b.transform.SetParent(a.transform, true);
+                                        //a.GetComponent<Animator>().avatar = Eavat;
+
+                                    }
+                                    if (CharcCHanger.charChanger._playerMultChar == 5)
+                                    {
+
+                                        // MuSexyWar
+                                        foreach (var item in placements)
+                                        {
+                                            placements.Shuffle();
+                                            if (item.transform.childCount == 0)
+                                            {
+
+                                                //if(item.transform.name== "firstPlaceMarlon")
+                                                //{
+                                                // Debug.Log(item.transform.position.ToString());
+
+
+                                                GameObject a = Instantiate(item);
+                                                //Vector3 pos = item.transform.position;
+                                                //-4.251999
+                                                Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
+                                                //Debug.Log("pos " + a.transform.position);
+                                                a.transform.position = pos;
+                                                GameObject ab = PhotonNetwork.Instantiate(MuSexyWar.name, pos, Quaternion.identity);
+                                                ab.transform.position = pos;
+                                                //a.transform.position = ab.transform.position;
+                                                if (a.transform.position == null)
+                                                {
+                                                    ab.transform.SetParent(a.transform, true);
+                                                    break;
+                                                }
+                                                else if (a.transform.position != null)
+                                                {
+                                                    return;
+                                                }
+
+
+
+
+                                            }
+                                            else
+                                            {
+                                                return;
+                                            }
+                                        }
+
+                                        //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
+                                        //a.transform.position = new Vector3(0, 0, 0);
+                                        //b = Instantiate(_ChangeCharacter5, a.transform.position, transform.rotation);
+                                        //b.transform.SetParent(a.transform, true);
+                                        //a.GetComponent<Animator>().avatar = Favat;
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    Debug.Log("place player");
+                                }
+                            }
                         }
                     }
 
-                    if (CharcCHanger.charChanger._playerMultChar == 1)
+                    public void Select()
                     {
 
-
-
-                        // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
-                        foreach (var item in placements)
+                        if (PlayerPrefs.GetInt("first") == 1)
                         {
-                            placements.Shuffle();
+                            PlayerPrefs.DeleteKey("zero");
+                            a = Instantiate(_MainBody, transform.position, transform.rotation);
+                            b = Instantiate(_ChangeCharacter1, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
+                            b.transform.SetParent(a.transform, true);
 
+                            a.GetComponent<Animator>().avatar = Bavat;
 
-<<<<<<< HEAD
-
-                    // PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
-                    foreach (var item in placements)
-                    {
-                        placements.Shuffle();
-
-=======
-
-                            GameObject a = Instantiate(item);
-
-                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                            SpawnPicker = UnityEngine.Random.Range(0, SpawnPointTransforms.Length);
-
-                            a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation, 0);
-                            // ab.transform.position = pos;
-
-                            if (a.transform.position == null)
-                            {
-                                ab.transform.SetParent(a.transform, true);
-                                break;
-                            }
-                            else if (a.transform.position != null)
-                            {
-                                return;
-                            }
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-
-
-                        GameObject a = Instantiate(item);
-
-                        Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-
-                        a.transform.position = pos;
-                        GameObject ab = PhotonNetwork.Instantiate(MuRobo.name, pos, Quaternion.identity);
-                        ab.transform.position = pos;
-
-                        if (a.transform.position == null)
-                        {
-                            ab.transform.SetParent(a.transform, true);
-                            break;
                         }
-                        else if (a.transform.position != null)
+                        if (PlayerPrefs.GetInt("second") == 2)
                         {
-                            return;
+                            a = Instantiate(_MainBody, transform.position, transform.rotation);
+                            b = Instantiate(_ChangeCharacter2, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
+                            b.transform.SetParent(a.transform, true);
+                            a.GetComponent<Animator>().avatar = Cavat;
                         }
-
-
-                        // ab.transform.SetParent(a.transform, true);
-                        //a.transform.position = ab.transform.position;
-                        //item.transform.SetParent(a.transform, true);
-                        //  Debug.Log(item.transform.position.ToString());
-                        // Debug.Log(item.transform.name.ToString());
-
-                        //a.transform.position = item.transform.position;
-
-
-                        //}
-
-
-<<<<<<< HEAD
+                        if (PlayerPrefs.GetInt("third") == 3)
+                        {
+                            a = Instantiate(_MainBody, transform.position, transform.rotation);
+                            b = Instantiate(_ChangeCharacter3, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
+                            b.transform.SetParent(a.transform, true);
+                            a.GetComponent<Animator>().avatar = Davat;
+                        }
+                        if (PlayerPrefs.GetInt("fourth") == 4)
+                        {
+                            a = Instantiate(_MainBody, transform.position, transform.rotation);
+                            b = Instantiate(_ChangeCharacter4, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
+                            b.transform.SetParent(a.transform, true);
+                            a.GetComponent<Animator>().avatar = Eavat;
+                        }
+                        if (PlayerPrefs.GetInt("fifth") == 5)
+                        {
+                            a = Instantiate(_MainBody, transform.position, transform.rotation);
+                            b = Instantiate(_ChangeCharacter5, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
+                            b.transform.SetParent(a.transform, true);
+                            a.GetComponent<Animator>().avatar = Favat;
+                        }
                     }
-=======
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
 
-                        }
-
-<<<<<<< HEAD
                 }
-                if (CharcCHanger.charChanger._playerMultChar == 2)
-                {
+                    //public IEnumerator Lanch()
+                    //{
 
-                    foreach (var item in placements)
-=======
+                    //    yield return new WaitForSeconds(0.2f);
 
-                    }
-                    if (CharcCHanger.charChanger._playerMultChar == 2)
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-                    {
+                    //    //a.GetComponent<Animator>().avatar = avat;
 
-                        foreach (var item in placements)
-                        {
-                            placements.Shuffle();
-                            if (item.transform.childCount == 0)
-                            {
+                    //    //a.SetActive(true);
+                    //    //b.SetActive(true);
 
-                                //if(item.transform.name== "firstPlaceMarlon")
-                                //{
-                                // Debug.Log(item.transform.position.ToString());
+                    //}
 
+                
+//[PunRPC]
+//    public void Get_Total(int amount, int ID)
+//    {
 
-<<<<<<< HEAD
-                            GameObject a = Instantiate(item);
-                            //Vector3 pos = item.transform.position;
-                            //-4.251999
-                            Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                            //Debug.Log("pos " + a.transform.position);
-                            a.transform.position = pos;
-                            GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
-                            ab.transform.position = pos;
+//        Debug.Log("amount " + amount + " id "  + ID);
+//        pointText.text= ID.ToString();
+//        //Time.timeScale=0;
 
-                            if (a.transform.position == null)
-                            {
-                                ab.transform.SetParent(a.transform, true);
-                                break;
-                            }
-                            else if (a.transform.position != null)
-                            {
-                                return;
-                            }
-=======
-                                GameObject a = Instantiate(item);
-                                //Vector3 pos = item.transform.position;
-                                //-4.251999
-                                Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                                //Debug.Log("pos " + a.transform.position);
-                                a.transform.position = pos;
-                                GameObject ab = PhotonNetwork.Instantiate(MuRedFemale.name, pos, Quaternion.identity);
-                                ab.transform.position = pos;
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-
-                                if (a.transform.position == null)
-                                {
-                                    ab.transform.SetParent(a.transform, true);
-                                    break;
-                                }
-                                else if (a.transform.position != null)
-                                {
-                                    return;
-                                }
-
-
-                                // ab.transform.SetParent(a.transform, true);
-                                //a.transform.position = ab.transform.position;
-                                //item.transform.SetParent(a.transform, true);
-                                //  Debug.Log(item.transform.position.ToString());
-                                // Debug.Log(item.transform.name.ToString());
-
-                                //a.transform.position = item.transform.position;
-
-
-                                //}
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-
-                    }
-                    if (CharcCHanger.charChanger._playerMultChar == 3)
-                    {
-                        foreach (var item in placements)
-                        {
-                            placements.Shuffle();
-                            if (item.transform.childCount == 0)
-                            {
-
-                                //if(item.transform.name== "firstPlaceMarlon")
-                                //{
-                                // Debug.Log(item.transform.position.ToString());
-
-
-                                GameObject a = Instantiate(item);
-                                //Vector3 pos = item.transform.position;
-                                //-4.251999
-                                Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                                //Debug.Log("pos " + a.transform.position);
-                                a.transform.position = pos;
-                                GameObject ab = PhotonNetwork.Instantiate(MuDark.name, pos, Quaternion.identity);
-                                ab.transform.position = pos;
-                                //a.transform.position = ab.transform.position;
-                                if (a.transform.position == null)
-                                {
-                                    ab.transform.SetParent(a.transform, true);
-                                    break;
-                                }
-                                else if (a.transform.position != null)
-                                {
-                                    return;
-                                }
-
-
-
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-
-<<<<<<< HEAD
-
-
-=======
-                        //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
-                        //a.transform.position = new Vector3(0, 0, 0);
-                        //b = Instantiate(_ChangeCharacter3, a.transform.position, transform.rotation);
-                        //b.transform.SetParent(a.transform, true);
-                        //a.GetComponent<Animator>().avatar = Davat;
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-
-                    }
-
-                    if (CharcCHanger.charChanger._playerMultChar == 4)
-                    {
-
-
-<<<<<<< HEAD
-
-                    foreach (var item in placements)
-                    {
-                        placements.Shuffle();
-                        if (item.transform.childCount == 0)
-=======
-                        foreach (var item in placements)
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-                        {
-                            placements.Shuffle();
-                            if (item.transform.childCount == 0)
-                            {
-
-                                //if(item.transform.name== "firstPlaceMarlon")
-                                //{
-                                // Debug.Log(item.transform.position.ToString());
-
-
-                                GameObject a = Instantiate(item);
-                                //Vector3 pos = item.transform.position;
-                                //-4.251999
-                                Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                                //Debug.Log("pos " + a.transform.position);
-                                a.transform.position = pos;
-                                GameObject ab = PhotonNetwork.Instantiate(MuLewis.name, pos, Quaternion.identity);
-                                ab.transform.position = pos;
-                                //a.transform.position = ab.transform.position;
-                                if (a.transform.position == null)
-                                {
-                                    ab.transform.SetParent(a.transform, true);
-                                    break;
-                                }
-                                else if (a.transform.position != null)
-                                {
-                                    return;
-                                }
-
-
-
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-
-                        //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
-                        //a.transform.position = new Vector3(0, 0, 0);
-                        //b = Instantiate(_ChangeCharacter4, a.transform.position, transform.rotation);
-                        //b.transform.SetParent(a.transform, true);
-                        //a.GetComponent<Animator>().avatar = Eavat;
-
-                    }
-                    if (CharcCHanger.charChanger._playerMultChar == 5)
-                    {
-
-                        // MuSexyWar
-                        foreach (var item in placements)
-                        {
-                            placements.Shuffle();
-                            if (item.transform.childCount == 0)
-                            {
-
-                                //if(item.transform.name== "firstPlaceMarlon")
-                                //{
-                                // Debug.Log(item.transform.position.ToString());
-
-
-                                GameObject a = Instantiate(item);
-                                //Vector3 pos = item.transform.position;
-                                //-4.251999
-                                Vector3 pos = new Vector3(a.transform.position.x, -4.251999f, a.transform.position.z);
-                                //Debug.Log("pos " + a.transform.position);
-                                a.transform.position = pos;
-                                GameObject ab = PhotonNetwork.Instantiate(MuSexyWar.name, pos, Quaternion.identity);
-                                ab.transform.position = pos;
-                                //a.transform.position = ab.transform.position;
-                                if (a.transform.position == null)
-                                {
-                                    ab.transform.SetParent(a.transform, true);
-                                    break;
-                                }
-                                else if (a.transform.position != null)
-                                {
-                                    return;
-                                }
-
-
-
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-
-                        //a = PhotonNetwork.Instantiate(MuRobo.name, position1, Quaternion.identity);
-                        //a.transform.position = new Vector3(0, 0, 0);
-                        //b = Instantiate(_ChangeCharacter5, a.transform.position, transform.rotation);
-                        //b.transform.SetParent(a.transform, true);
-                        //a.GetComponent<Animator>().avatar = Favat;
-
-                    }
-
-                }
-                else
-                {
-                    Debug.Log("place player");
-                }
-            }
-        }
-    }
-
-    public void Select()
-    {
-
-        if (PlayerPrefs.GetInt("first") == 1)
-        {
-            PlayerPrefs.DeleteKey("zero");
-            a = Instantiate(_MainBody, transform.position, transform.rotation);
-            b = Instantiate(_ChangeCharacter1, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
-            b.transform.SetParent(a.transform, true);
-
-            a.GetComponent<Animator>().avatar = Bavat;
-
-        }
-        if (PlayerPrefs.GetInt("second") == 2)
-        {
-            a = Instantiate(_MainBody, transform.position, transform.rotation);
-            b = Instantiate(_ChangeCharacter2, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
-            b.transform.SetParent(a.transform, true);
-            a.GetComponent<Animator>().avatar = Cavat;
-        }
-        if (PlayerPrefs.GetInt("third") == 3)
-        {
-            a = Instantiate(_MainBody, transform.position, transform.rotation);
-            b = Instantiate(_ChangeCharacter3, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
-            b.transform.SetParent(a.transform, true);
-            a.GetComponent<Animator>().avatar = Davat;
-        }
-        if (PlayerPrefs.GetInt("fourth") == 4)
-        {
-            a = Instantiate(_MainBody, transform.position, transform.rotation);
-            b = Instantiate(_ChangeCharacter4, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
-            b.transform.SetParent(a.transform, true);
-            a.GetComponent<Animator>().avatar = Eavat;
-        }
-        if (PlayerPrefs.GetInt("fifth") == 5)
-        {
-            a = Instantiate(_MainBody, transform.position, transform.rotation);
-            b = Instantiate(_ChangeCharacter5, transform.position + new Vector3(0, -0.91f, 0), transform.rotation);
-            b.transform.SetParent(a.transform, true);
-            a.GetComponent<Animator>().avatar = Favat;
-        }
-
-    }
-
-    public IEnumerator Lanch()
-    {
-
-        yield return new WaitForSeconds(0.2f);
-
-        //a.GetComponent<Animator>().avatar = avat;
-
-        //a.SetActive(true);
-        //b.SetActive(true);
-
-    }
-
-
-[PunRPC]
-    public void Get_Total(int amount, int ID)
-    {
-<<<<<<< HEAD
-        Debug.Log("amount " + amount + " id "  + ID);
-        pointText.text= ID.ToString();
-        //Time.timeScale=0;
-=======
-        Debug.Log(" FROM GAME SINGLE amount " + amount + " id "  + ID);
-        //pointText.text= ID.ToString();
-       // Time.timeScale=0;
-       // PhotonView photonVIEWS = photonVIEWS.FindView
+//        Debug.Log(" FROM GAME SINGLE amount " + amount + " id "  + ID);
+//        //pointText.text= ID.ToString();
+//       // Time.timeScale=0;
+//       // PhotonView photonVIEWS = photonVIEWS.FindView
 
         
-    }
+//    }
 
-    #region LEvel 2
+//    #region LEvel 2
 
-    public void WInGame(){
+//  public void WInGame(){
 
-        Lev2Canvas.SetActive(true);
->>>>>>> 733b97b377e5fe91d891a605abb859cd57b056a4
-    }
-   [PunRPC]
-    public void Wingame(){
-            //pasue the game
+//        Lev2Canvas.SetActive(true);
+
+//    }
+//   [PunRPC]
+//    public void Wingame(){
+//            //pasue the game
    
            
-         GameManSinglePlayer.gameManSIgleInstance.WInGame();
-            Time.timeScale = 0;
-            //Show Level 2 canvas
+//         GameManSinglePlayer.gameManSIgleInstance.WInGame();
+//            Time.timeScale = 0;
+//            //Show Level 2 canvas
 
-        StartCoroutine("DisconnectAndLoad");
+//        StartCoroutine("DisconnectAndLoad");
 
 
-    }
+//    }
 
   
-public IEnumerator DisconnectAndLoad(){
+//public IEnumerator DisconnectAndLoad(){
 
-    //PhotonNetwork.LeaveRoom();
-   // PhotonNetwork.Disconnect();
-    while(PhotonNetwork.IsConnected){
-            yield return null;
+//    //PhotonNetwork.LeaveRoom();
+//   // PhotonNetwork.Disconnect();
+//    while(PhotonNetwork.IsConnected){
+//            yield return null;
 
-            //SceneManager.LoadScene();
-    }
+//            //SceneManager.LoadScene();
+//    }
 
-}
+//}
 
 
-public void NewGame2Level(){
+//public void NewGame2Level(){
 
-    //check if player is in room
-   SceneManager.LoadScene("Scene2");
-   Time.timeScale=1;
+//    //check if player is in room
+//   SceneManager.LoadScene("Scene2");
+//   Time.timeScale=1;
      
-                          //  GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation,0);
-   PhotonNetwork.ConnectUsingSettings();
-   //PhotonNetwork.LoadScene(3);
-       // PhotonNetwork.JoinLobby();
-        //SelectMulti();
-//PhotonNetwork.JoinRandomRoom();
-    if(!PhotonNetwork.InLobby){
+//                          //  GameObject ab = PhotonNetwork.Instantiate(MuRedman.name, SpawnPointTransforms[SpawnPicker].position, SpawnPointTransforms[SpawnPicker].rotation,0);
+//   PhotonNetwork.ConnectUsingSettings();
+//   //PhotonNetwork.LoadScene(3);
+//       // PhotonNetwork.JoinLobby();
+//        //SelectMulti();
+////PhotonNetwork.JoinRandomRoom();
+//    if(!PhotonNetwork.InLobby){
         
      
-    }else{
+//    }else{
 
-        Debug.Log("Nowhere to be found");
-    }
+//        Debug.Log("Nowhere to be found");
+//    }
    
  
 
  
-}
+//}
     
 
-    #endregion
+//    #endregion
 
-    #region PhotonCallbacks
+//    #region PhotonCallbacks
 
-  public override void OnConnected(){
+//  public override void OnConnected(){
 
-        Debug.Log("Connected to Master 2");
-  }
-  public override void OnJoinedRoom(){
+//        Debug.Log("Connected to Master 2");
+//  }
+//  public override void OnJoinedRoom(){
 
-  }
-public override void OnConnectedToMaster(){
+//  }
+//public override void OnConnectedToMaster(){
 
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to Phont Second");
-  }
+//        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to Phont Second");
+//  }
 
-    #endregion
+//    #endregion
     
-    //public void TimerRe()
-    //{
+//    //public void TimerRe()
+//    //{
 
 
-    //    x10 = (decimal)timer1;
-    //    x10 = System.Math.Round(x10, 1);
+//    //    x10 = (decimal)timer1;
+//    //    x10 = System.Math.Round(x10, 1);
 
-    //    timer1 += Time.deltaTime;
-    //    timerRemaining.text = x10.ToString();
-
-
+//    //    timer1 += Time.deltaTime;
+//    //    timerRemaining.text = x10.ToString();
 
 
-    //    if (PRizeScore.instance.wonGame)
-    //    {
-    //       // PauseGame();
-    //    }
-    //}
 
-    //public void PauseGame()
-    //{
-    //    Time.timeScale = 0;
-    //}
 
-    //public void ResumeGame()
-    //{
-    //    Time.timeScale = 1;
+//    //    if (PRizeScore.instance.wonGame)
+//    //    {
+//    //       // PauseGame();
+//    //    }
+//    //}
 
-    //}
+//    //public void PauseGame()
+//    //{
+//    //    Time.timeScale = 0;
+//    //}
 
-    //launch leader boad
-    //take input name into leader board
-    //save time in PlayerPref variable
-    //ushow unlock for next level
+//    //public void ResumeGame()
+//    //{
+//    //    Time.timeScale = 1;
+
+//    //}
+
+//    //launch leader boad
+//    //take input name into leader board
+//    //save time in PlayerPref variable
+//    //ushow unlock for next level
 
 
 
